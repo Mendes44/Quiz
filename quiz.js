@@ -59,6 +59,7 @@ const selecionarQuestoesAleatorias = (colecaoPerguntas, quantidade) => {
     return perguntasEmbaralhadas.slice(0, quantidade);
 };
 
+//Função responsavel para fazer as perguntas ao jogador.
 function fazerPerguntas(perguntasSelecionadas) {
     let pontuacao = 0;
 
@@ -76,6 +77,7 @@ function fazerPerguntas(perguntasSelecionadas) {
     return pontuacao;
 };
 
+//Aqui onde faço o calculo para saber qual mensagem voltar para o jogador atraves da estrutura condicional.
 function verificarMensagemFinal(pontuacao, totalPerguntas){
     const percentual = (pontuacao / totalPerguntas) * 100;
 
@@ -90,7 +92,7 @@ function verificarMensagemFinal(pontuacao, totalPerguntas){
     }
 };
 
-
+//Funcao responsavel por mostrar o resultado final.
 function exibirResultados(nomeJogador, pontuacao, totalPerguntas){
     const mensagemFinal = verificarMensagemFinal(pontuacao, totalPerguntas);
     
@@ -102,8 +104,9 @@ function exibirResultados(nomeJogador, pontuacao, totalPerguntas){
     console.log(`Pontuação final: ${pontuacao} acertos de ${totalPerguntas}.`);
 };
 
+//Aqui e onde chamo todas demais funções para rodar o Quiz.
 function iniciarQuiz(){
-    const quantidadePerguntas = 3;
+    const quantidadePerguntas = 10;
     exibirTitulo();
 
     const nomeJogador = receberNome();
