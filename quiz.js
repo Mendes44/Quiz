@@ -34,9 +34,10 @@ const questoes = [
 ];
 
 const questoesEmbaralhadas = questoes.sort( () => Math.random() - 0.5 );//Aqui uso o - 0.5 para trazer resultado aleatorio de -0.5 a 0.5 (sintaxe bem usada no metodo .sort para criar aletoriedade em arrays).
-console.log(questoesEmbaralhadas);
 
-cons
+const questoesSelecionadas = questoesEmbaralhadas.slice(0, 10);
+console.log(questoesSelecionadas);
+console.log("\n Tamanho do Array: " + questoesSelecionadas.length);
 
 
 const selecionarQuestoesAleatorias = questoes.sort((questao) => {
