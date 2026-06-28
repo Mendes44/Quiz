@@ -47,9 +47,7 @@ function receberNome(){
     return nome;
 };
 
-
-
-
+//Responsavel por pegar o array questoes e embaralhar usando o metodo sort.
 function embaralharArray(colecaoPerguntas){
     return colecaoPerguntas.sort(() => Math.random() - 0.5); //Aqui uso o - 0.5 para trazer resultado aleatorio de -0.5 a 0.5 (sintaxe bem usada no metodo .sort para criar aletoriedade em arrays).
 };
@@ -61,9 +59,31 @@ const selecionarQuestoesAleatorias = (colecaoPerguntas, quantidade) => {
     return perguntasEmbaralhadas.slice(0, quantidade);
 };
 
+function fazerPerguntas(perguntasSelecionadas) {
+    let pontuacao = 0;
+
+    perguntaSelecionadas.forEach((questao, index) => {
+        console.log(`Pergunta ${index + 1}: ${questao.pergunta}`);
+        const respostaUsuario = EntradaDados.question("Sua Resposta: ");
+
+        if (respostaUsuario === questao.resposta) {
+            console.log('RESPOSTA CERTA!');
+            pontuacao++;
+        }else {
+            console.log('RESPOSTA ERRADA! - A resposta correta era: ' + questao.resposta);
+        }
+    });
+    return pontuacao;
+};
+
+function verificarMensagemFinal(){
+    
+}
+
+
+
 function exibirPerguntas(colecaoPerguntas){
     colecaoPerguntas.forEach((pergunta, index) => {
-        console.log(`Pergunta ${index + 1}: ${pergunta.pergunta}`);
     });
 };
 
