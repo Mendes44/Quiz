@@ -33,12 +33,23 @@ const questoes = [
   { id: 30, pergunta: 'Em que ano o homem pisou na Lua pela primeira vez?', resposta: '1969' }
 ];
 
-const questoesEmbaralhadas = questoes.sort( () => Math.random() - 0.5 );//Aqui uso o - 0.5 para trazer resultado aleatorio de -0.5 a 0.5 (sintaxe bem usada no metodo .sort para criar aletoriedade em arrays).
 
-const questoesSelecionadas = questoesEmbaralhadas.slice(0, 10);
-console.log(questoesSelecionadas);
-console.log("\n Tamanho do Array: " + questoesSelecionadas.length);
+function embaralharArray(colecaoPerguntas){
+    return colecaoPerguntas.sort(() => Math - 0.5)//Aqui uso o - 0.5 para trazer resultado aleatorio de -0.5 a 0.5 (sintaxe bem usada no metodo .sort para criar aletoriedade em arrays).
+}
 
 
-const selecionarQuestoesAleatorias = questoes.sort((questao) => {
+//Arrow Function para selecionar as perguntas no array novo gerado pela funcao embaralha Array.
+const selecionarQuestoesAleatorias = (colecaoPerguntas, quantidade) => {
+    const perguntasEmbaralhadas = embaralharArray(colecaoPerguntas);
+    return perguntasEmbaralhadas.sort(0, quantidade);
+}
+
+
+
+
+
+questoesSelecionadas.forEach((pergunta, index) => {
+    console.log(`${index + 1}: ${pergunta.pergunta}`);
 })
+
