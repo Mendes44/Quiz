@@ -76,15 +76,23 @@ function fazerPerguntas(perguntasSelecionadas) {
     return pontuacao;
 };
 
-function verificarMensagemFinal(){
-    
-}
+function verificarMensagemFinal(pontuacao, totalPerguntas){
+    const percentual = (pontuacao / totalPerguntas) * 100;
+
+    if (percentual < 40){
+        return "OH NÃO! - Tente mais uma vez!"
+    }else if (percentual < 60){
+        return "BOM TRABALHO! - Pratique um pouco mais!"
+    }else if (percentual < 90){
+        return "MUITO BOM! - Você acertou a maioria!"
+    }else {
+        return "EXCELENTE!!! - Você é um verdadeiro expert!"
+    }
+};
 
 
-
-function exibirPerguntas(colecaoPerguntas){
-    colecaoPerguntas.forEach((pergunta, index) => {
-    });
+function exibirResultados(nomeJogador, pontucao, totalPerguntas){
+    const mesagemFinal
 };
 
 const quantidadePergutas = 3;
