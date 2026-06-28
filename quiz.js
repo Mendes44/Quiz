@@ -62,7 +62,7 @@ const selecionarQuestoesAleatorias = (colecaoPerguntas, quantidade) => {
 function fazerPerguntas(perguntasSelecionadas) {
     let pontuacao = 0;
 
-    perguntaSelecionadas.forEach((questao, index) => {
+    perguntasSelecionadas.forEach((questao, index) => {
         console.log(`Pergunta ${index + 1}: ${questao.pergunta}`);
         const respostaUsuario = EntradaDados.question("Sua Resposta: ");
 
@@ -91,14 +91,28 @@ function verificarMensagemFinal(pontuacao, totalPerguntas){
 };
 
 
-function exibirResultados(nomeJogador, pontucao, totalPerguntas){
-    const mesagemFinal
+function exibirResultados(nomeJogador, pontuacao, totalPerguntas){
+    const mensagemFinal = verificarMensagemFinal(pontuacao, totalPerguntas);
+    
+    console.log('\n=================================');
+    console.log('        RESULTADO FINAL');
+    console.log('=================================');
+    console.log(mensagemFinal);
+    console.log(`Jogador(a): ${nomeJogador}`);
+    console.log(`Pontuação final: ${pontuacao} acertos de ${totalPerguntas}.`);
 };
 
-const quantidadePergutas = 3;
+function iniciarQuiz(){
+    const quantidadePerguntas = 3;
+    exibirTitulo();
 
-const perguntaSelecionadas = selecionarQuestoesAleatorias(questoes, quantidadePergutas);
-exibirTitulo();
-exibirPerguntas(perguntaSelecionadas);
+    const nomeJogador = receberNome();
+    const perguntasSelecionadas = selecionarQuestoesAleatorias(questoes, quantidadePerguntas);
+    const pontuacao = fazerPerguntas(perguntasSelecionadas);
+
+    exibirResultados(nomeJogador, pontuacao, quantidadePerguntas);
+};
+
+iniciarQuiz();
 
 
