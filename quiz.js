@@ -35,21 +35,25 @@ const questoes = [
 
 
 function embaralharArray(colecaoPerguntas){
-    return colecaoPerguntas.sort(() => Math - 0.5)//Aqui uso o - 0.5 para trazer resultado aleatorio de -0.5 a 0.5 (sintaxe bem usada no metodo .sort para criar aletoriedade em arrays).
-}
+    return colecaoPerguntas.sort(() => Math.random() - 0.5); //Aqui uso o - 0.5 para trazer resultado aleatorio de -0.5 a 0.5 (sintaxe bem usada no metodo .sort para criar aletoriedade em arrays).
+};
 
 
 //Arrow Function para selecionar as perguntas no array novo gerado pela funcao embaralha Array.
 const selecionarQuestoesAleatorias = (colecaoPerguntas, quantidade) => {
     const perguntasEmbaralhadas = embaralharArray(colecaoPerguntas);
-    return perguntasEmbaralhadas.sort(0, quantidade);
-}
+    return perguntasEmbaralhadas.slice(0, quantidade);
+};
 
+function exibirPerguntas(colecaoPerguntas){
+    colecaoPerguntas.forEach((pergunta, index) => {
+        console.log(`Pergunta ${index + 1}: ${pergunta.pergunta}`);
+    });
+};
 
+const quantidadePergutas = 3;
 
+const perguntaSelecionadas = selecionarQuestoesAleatorias(questoes, quantidadePergutas);
+exibirPerguntas(perguntaSelecionadas);
 
-
-questoesSelecionadas.forEach((pergunta, index) => {
-    console.log(`${index + 1}: ${pergunta.pergunta}`);
-})
 
