@@ -33,6 +33,22 @@ const questoes = [
   { id: 30, pergunta: 'Em que ano o homem pisou na Lua pela primeira vez?', resposta: '1969' }
 ];
 
+//Arrow Fuction para exibir titulo do Quiz.
+const exibirTitulo = () => {
+    console.log('=================================');
+    console.log('     QUIZ DE FATOS HISTÓRICOS');
+    console.log('=================================\n');
+}
+
+//Função para pegar nome do jogador. 
+function receberNome(){
+    console.log('Seja Bem Vindo(a)!\n');
+    const nome = EntradaDados.question('Digite seu Nome: ');
+    return nome;
+};
+
+
+
 
 function embaralharArray(colecaoPerguntas){
     return colecaoPerguntas.sort(() => Math.random() - 0.5); //Aqui uso o - 0.5 para trazer resultado aleatorio de -0.5 a 0.5 (sintaxe bem usada no metodo .sort para criar aletoriedade em arrays).
@@ -54,6 +70,7 @@ function exibirPerguntas(colecaoPerguntas){
 const quantidadePergutas = 3;
 
 const perguntaSelecionadas = selecionarQuestoesAleatorias(questoes, quantidadePergutas);
+exibirTitulo();
 exibirPerguntas(perguntaSelecionadas);
 
 
