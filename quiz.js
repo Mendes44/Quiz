@@ -43,7 +43,7 @@ const exibirTitulo = () => {
 //Função para pegar nome do jogador. 
 function receberNome(){
     console.log('Seja Bem Vindo(a)!\n');
-    const nome = EntradaDados.question('Digite seu Nome: ');
+    const nome = EntradaDados.question('Digite seu Nome: ').trim();
     return nome;
 };
 
@@ -65,7 +65,7 @@ function fazerPerguntas(perguntasSelecionadas) {
 
     perguntasSelecionadas.forEach((questao, index) => {
         console.log(`Pergunta ${index + 1}: ${questao.pergunta}`);
-        const respostaUsuario = EntradaDados.question("Sua Resposta: ");
+        const respostaUsuario = EntradaDados.question("Sua Resposta: ").trim();
 
         if (respostaUsuario === questao.resposta) {
             console.log('RESPOSTA CERTA!');
