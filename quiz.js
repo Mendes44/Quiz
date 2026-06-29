@@ -43,13 +43,19 @@ const exibirTitulo = () => {
 //Função para pegar nome do jogador. 
 function receberNome(){
     console.log('Seja Bem Vindo(a)!\n');
-    const nome = EntradaDados.question('Digite seu Nome: ').trim();
+    let nome = EntradaDados.question('Digite seu Nome: ').trim();
+    
+    while (nome === ''){
+        console.log('Nome Digitado e invalido! - Digite um Nome (Não deixe em Branco)\n');
+        nome = EntradaDados.question('Digite seu Nome: ').trim();
+    }
+
     return nome;
 };
 
 //Responsavel por pegar o array questoes e embaralhar usando o metodo sort.
 function embaralharArray(colecaoPerguntas){
-    return colecaoPerguntas.sort(() => Math.random() - 0.5); //Aqui uso o - 0.5 para trazer resultado aleatorio de -0.5 a 0.5 (sintaxe bem usada no metodo .sort para criar aletoriedade em arrays).
+    return [...colecaoPerguntas].sort(() => Math.random() - 0.5); //Aqui uso o - 0.5 para trazer resultado aleatorio de -0.5 a 0.5 (sintaxe bem usada no metodo .sort para criar aletoriedade em arrays).
 };
 
 
